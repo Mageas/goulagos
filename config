@@ -1,0 +1,127 @@
+#!/usr/bin/env bash
+
+DISKS_TO_MOUNT=(
+    "UUID=e482f60c-8a80-4a01-8be6-3c11473fbe68    ${HOME}/Films       ext4    defaults    0 0"
+    "UUID=20f1c47d-7f9b-4c18-8a22-e1a5fe509ef2    ${HOME}/Documents   ext4    defaults    0 0"
+    "UUID=7d366d8b-7b1a-42bc-a4e2-0cd96644d2b9    ${HOME}/2TO         ext4    defaults    0 0"
+)
+
+SUCKLESS=(
+    "dwm"
+    "dmenu"
+    "slock"
+)
+
+CUSTOM_SCRIPTS=(
+    "install_custom_grub"
+    "install_doom_emacs"
+    "install_lts_kernel"
+    "config_packages"
+)
+
+AUR_PACKAGES=(
+    "joshuto"
+    "scrcpy"
+    "sddm-sugar-candy-git"
+    "spaceship-prompt-git"
+)
+
+FLATPAK_PACKAGES=(
+    "chat.revolt.RevoltDesktop /var/lib/flatpak/exports/bin/chat.revolt.RevoltDesktop /usr/bin/revolt"
+    "com.github.tchx84.Flatseal /var/lib/flatpak/exports/bin/com.github.tchx84.Flatseal /usr/bin/flatseal"
+    "com.discordapp.Discord /var/lib/flatpak/exports/bin/com.discordapp.Discord /usr/bin/discord"
+)
+
+PACMAN_PACKAGES=(
+    # xorg
+    "xorg-server"
+    "xorg-xprop"
+    "xorg-xrandr"
+    "xorg-xrdb"
+    "xorg-xsetroot"
+
+    # display manager
+    "sddm"
+
+    # sound
+    "alsa-utils"
+    "pamixer"
+    "pipewire"
+    "pipewire-alsa"
+    "pipewire-pulse"
+
+    # drivers
+    "amd-ucode"
+    "nvidia"
+
+    # dwm
+    "alacritty"
+    "base-devel"
+    "gnu-free-fonts"
+
+    # apps
+    "docker"
+    "docker-compose"
+    "firefox"
+    "flatpak"
+    "gimp"
+    "gnome-keyring"
+    "nextcloud-client"
+    "openssh"
+    "pavucontrol"
+    "rsync"
+    "scrcpy"
+    ## rust
+    "rust-analyzer"
+    "rustup"
+    ## android
+    "gvfs-mtp"
+    "libmtp"
+    ## ntfs
+    "ntfs-3g"
+    ## logitech
+    "piper"
+
+    # fonts
+    "noto-fonts"
+    "noto-fonts-emoji"
+    "ttf-dejavu"
+    "ttf-jetbrains-mono"
+    "ttf-ubuntu-font-family"
+
+    # dotfiles
+    "dash"
+    "neovim"
+    "picom"
+    "stow"
+    ## apps
+    "easyeffects"
+    "emacs"
+    "mpv"
+    "yt-dlp"
+    ## theme
+    "arc-gtk-theme"
+    "papirus-icon-theme"
+    ## dwm
+    "sxhkd"
+    ## lightdm
+    "numlockx"
+    ## alacritty
+    "redshift"
+    "zsh"
+    "zsh-completions"
+    ## autostart
+    "dunst"
+    "feh"
+    ## zshrc
+    "lolcat"
+    ## scripts/dm-screenshot
+    "maim"
+    "xdotool"
+    ## scripts/dm-screenshot && scripts/dm-videos
+    "xclip"
+    ## scripts/extract
+    "unzip"
+    ## scripts/statusbar
+    "pacman-contrib"
+)
