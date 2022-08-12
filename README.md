@@ -1,6 +1,6 @@
-# 
+# GoulagOs
 
-My own distribution.
+GoulagOs is my own archlinux distribution.
 
 ### **Description**
 
@@ -11,7 +11,7 @@ Installing:
 
 ### **Requirements**
 
-All the `suck` scripts from my [dotfiles](https://gitlab.com/Mageas/dotfiles)
+All the `suck` scripts from my [sysfiles](https://gitlab.com/Mageas/sysfiles)
 
 ### **Warning**
 
