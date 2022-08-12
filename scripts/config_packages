@@ -15,16 +15,9 @@ systemctl --user daemon-reload
 systemctl --user enable setmicvolume
 systemctl --user enable easyeffects
 
-# remove vim for nvim
-doas pacman -Rns --noconfirm vim; rm -rf /usr/bin/vim; doas ln -sf /usr/bin/nvim /usr/bin/vim
-
 # update the shell
 doas ln -sfT dash /usr/bin/sh
 doas chsh -s /bin/zsh ${USER}
-
-# update the gitconfig
-rm -rf ${HOME}/.gitconfig \
-    && ln -sf ${DOTFILES_DIRECTORY}/stow_home/gitconfig/.gitconfig ${HOME}/.gitconfig
 
 # install rust stable
 rustup install stable
