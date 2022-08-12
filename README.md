@@ -24,7 +24,7 @@ All the `suck` scripts from my [sysfiles](https://gitlab.com/Mageas/sysfiles)
 | `DOTFILES`                | `https://gitlab.com/Mageas/dotfiles` | dotfiles link                |
 | `DOTFILES_DIRECTORY`      | `${HOME}/.dots`                      | dotfiles directory path      |
 | `SYSFILES`                | `https://gitlab.com/Mageas/sysfiles` | sysfiles link                |
-| `SYSFILES_DIRECTORY`      | `/opt/dotfiles`                      | sysfiles directory path      |
+| `SYSFILES_DIRECTORY`      | `/opt/sysfiles`                      | sysfiles directory path      |
 | `SUCKLESS_BASE_LINK`      | `https://gitlab.com/Mageas`          | base link for suckless       |
 
 ### **The softwares I use**

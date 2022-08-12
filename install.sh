@@ -12,7 +12,7 @@ SCRIPTS_DIRECTORY="${CURRENT_DIRECTORY}/scripts"
 [ "${DOTFILES}" = "" ] && DOTFILES="https://gitlab.com/Mageas/dotfiles"
 [ "${DOTFILES_DIRECTORY}" = "" ] && DOTFILES_DIRECTORY="${HOME}/.dots"
 [ "${SYSFILES}" = "" ] && SYSFILES="https://gitlab.com/Mageas/sysfiles"
-[ "${SYSFILES_DIRECTORY}" = "" ] && SYSFILES_DIRECTORY="/opt/dotfiles"
+[ "${SYSFILES_DIRECTORY}" = "" ] && SYSFILES_DIRECTORY="/opt/sysfiles"
 [ "${SUCKLESS_BASE_LINK}" = "" ] && SUCKLESS_BASE_LINK="https://gitlab.com/Mageas"
 HOSTNAME=$(hostnamectl --static)
 
