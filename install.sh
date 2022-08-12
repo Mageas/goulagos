@@ -135,7 +135,7 @@ function install_dotfiles () {
         && cd "${DOTFILES_DIRECTORY}"
     for files in ${DOTFILES_DIRECTORY}/*; do
         if [ -d ${files} ]; then
-            doas stow -R $(basename $files) \
+            stow -R $(basename $files) \
                 || ERROR "[install_dotfiles]: Unable to install sysfiles"
         fi
     done
