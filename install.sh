@@ -132,8 +132,11 @@ function install_flatpak_packages() {
 
 function install_dotfiles () {
     git clone ${DOTFILES} ${DOTFILES_DIRECTORY} \
-        && cd "${DOTFILES_DIRECTORY}" && stow * \
-        || ERROR "[install_dotfiles]: Unable to install dotfiles"
+        && cd "${DOTFILES_DIRECTORY}"
+    for files in ${DOTFILES_DIRECTORY}/*; do
+        [ -d ${files} ] && stow -R $(basename $files) \
+            ERROR "[install_dotfiles]: Unable to install dotfiles"
+    done
 
     doas git clone ${SYSFILES} ${SYSFILES_DIRECTORY} \
         && cd "${SYSFILES_DIRECTORY}" \
@@ -145,7 +148,10 @@ function install_dotfiles () {
             [[ -f "/${f}" || -L "/${f}" ]] && doas rm "/${f}"
         done
     done
-    doas stow * || ERROR "[install_dotfiles]: Unable to install root dotfiles"
+    for files in ${SYSFILES_DIRECTORY}/*; do
+        [ -d ${files} ] && doas stow -R $(basename $files) \
+            ERROR "[install_dotfiles]: Unable to install sysfiles"
+    done
 }
 
 
