@@ -9,7 +9,6 @@ DISKS_TO_MOUNT=(
 SUCKLESS=(
     "dwm"
     "dmenu"
-    "slock"
 )
 
 CUSTOM_SCRIPTS=(
