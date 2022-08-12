@@ -70,9 +70,9 @@ PACMAN_PACKAGES=(
     "pavucontrol"
     "rsync"
     "scrcpy"
-    ## rust
-    "rust-analyzer"
+    ## rust (install `rustup` before `rust-analyzer` otherwise `rust` is installed)
     "rustup"
+    "rust-analyzer"
     ## android
     "gvfs-mtp"
     "libmtp"
