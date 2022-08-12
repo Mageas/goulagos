@@ -134,8 +134,10 @@ function install_dotfiles () {
     git clone ${DOTFILES} ${DOTFILES_DIRECTORY} \
         && cd "${DOTFILES_DIRECTORY}"
     for files in ${DOTFILES_DIRECTORY}/*; do
-        [ -d ${files} ] && stow -R $(basename $files) \
-            ERROR "[install_dotfiles]: Unable to install dotfiles"
+        if [ -d ${files} ]; then
+            doas stow -R $(basename $files) \
+                || ERROR "[install_dotfiles]: Unable to install sysfiles"
+        fi
     done
 
     doas git clone ${SYSFILES} ${SYSFILES_DIRECTORY} \
@@ -149,8 +151,10 @@ function install_dotfiles () {
         done
     done
     for files in ${SYSFILES_DIRECTORY}/*; do
-        [ -d ${files} ] && doas stow -R $(basename $files) \
-            ERROR "[install_dotfiles]: Unable to install sysfiles"
+        if [ -d ${files} ]; then
+            doas stow -R $(basename $files) \
+                || ERROR "[install_dotfiles]: Unable to install sysfiles"
+        fi
     done
 }
 
