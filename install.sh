@@ -7,7 +7,7 @@
 CURRENT_DIRECTORY="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 SCRIPTS_DIRECTORY="${CURRENT_DIRECTORY}/scripts"
 [ -f "${CURRENT_DIRECTORY}/config" ] && source "${CURRENT_DIRECTORY}/config"
-[ "${INSTALL_DIRECTORY}" = "" ] && INSTALL_DIRECTORY="${HOME}/.archinstall"
+[ "${INSTALL_DIRECTORY}" = "" ] && INSTALL_DIRECTORY="${HOME}/.goulagos_install"
 [ "${LOGS_FILE}" = "" ] && LOGS_FILE="${INSTALL_DIRECTORY}/logs"
 [ "${DOTFILES}" = "" ] && DOTFILES="https://gitlab.com/Mageas/dotfiles"
 [ "${DOTFILES_DIRECTORY}" = "" ] && DOTFILES_DIRECTORY="${HOME}/.dots"

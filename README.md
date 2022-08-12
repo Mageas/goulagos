@@ -19,7 +19,7 @@ All the `suck` scripts from my [sysfiles](https://gitlab.com/Mageas/sysfiles)
 
 | variable                  | default value                        | description                  |
 | ------------------------- | ------------------------------------ | ---------------------------- |
-| `INSTALL_DIRECTORY`       | `${HOME}/.archinstall`               | install directory path       |
+| `INSTALL_DIRECTORY`       | `${HOME}/.goulagos_install`          | install directory path       |
 | `LOGS_FILE`               | `${INSTALL_DIRECTORY}/logs`          | log file path                |
 | `DOTFILES`                | `https://gitlab.com/Mageas/dotfiles` | dotfiles link                |
 | `DOTFILES_DIRECTORY`      | `${HOME}/.dots`                      | dotfiles directory path      |
