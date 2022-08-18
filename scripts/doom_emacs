@@ -4,4 +4,4 @@ git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d \
     && yes | ~/.emacs.d/bin/doom install \
     && ~/.emacs.d/bin/doom sync -! \
     && rm -rf ~/.doom.d \
-    || LOG "[config.install_doom_emacs]: Unable to install doom-emacs"
+    || LOG "[config.doom_emacs]: Unable to install doom-emacs"

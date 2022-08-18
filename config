@@ -12,10 +12,11 @@ SUCKLESS=(
 )
 
 CUSTOM_SCRIPTS=(
-    "install_custom_grub"
-    "install_doom_emacs"
-    "install_lts_kernel"
-    "config_packages"
+    "grub2-themes"
+    "astro_nvim"
+    "doom_emacs"
+    "lts_kernel"
+    "global"
 )
 
 AUR_PACKAGES=(
