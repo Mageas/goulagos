@@ -7,13 +7,13 @@
 CURRENT_DIRECTORY="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 SCRIPTS_DIRECTORY="${CURRENT_DIRECTORY}/scripts"
 [ -f "${CURRENT_DIRECTORY}/config" ] && source "${CURRENT_DIRECTORY}/config"
-[ "${INSTALL_DIRECTORY}" = "" ] && INSTALL_DIRECTORY="${HOME}/.goulagos_install"
+[ "${INSTALL_DIRECTORY}" = "" ] && INSTALL_DIRECTORY="${HOME}/.goulagos"
 [ "${LOGS_FILE}" = "" ] && LOGS_FILE="${INSTALL_DIRECTORY}/logs"
-[ "${DOTFILES}" = "" ] && DOTFILES="https://gitlab.com/Mageas/dotfiles"
+[ "${DOTFILES}" = "" ] && DOTFILES="https://gitea.heartnerds.org/Mageas/dotfiles"
 [ "${DOTFILES_DIRECTORY}" = "" ] && DOTFILES_DIRECTORY="${HOME}/.dots"
-[ "${SYSFILES}" = "" ] && SYSFILES="https://gitlab.com/Mageas/sysfiles"
+[ "${SYSFILES}" = "" ] && SYSFILES="https://gitea.heartnerds.org/Mageas/sysfiles"
 [ "${SYSFILES_DIRECTORY}" = "" ] && SYSFILES_DIRECTORY="/opt/sysfiles"
-[ "${SUCKLESS_BASE_LINK}" = "" ] && SUCKLESS_BASE_LINK="https://gitlab.com/Mageas"
+[ "${SUCKLESS_BASE_LINK}" = "" ] && SUCKLESS_BASE_LINK="https://gitea.heartnerds.org/Mageas"
 HOSTNAME=$(hostnamectl --static)
 
 
