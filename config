@@ -113,6 +113,7 @@ PACMAN_PACKAGES=(
     ## autostart
     "dunst"
     "feh"
+    "polkit-gnome"
     ## zshrc
     "lolcat"
     ## scripts/dm-screenshot
