@@ -8,7 +8,6 @@ DISKS_TO_MOUNT=(
 
 SUCKLESS=(
     "dwm"
-    "dmenu"
 )
 
 CUSTOM_SCRIPTS=(
@@ -30,6 +29,7 @@ FLATPAK_PACKAGES=(
     "chat.revolt.RevoltDesktop /var/lib/flatpak/exports/bin/chat.revolt.RevoltDesktop /usr/bin/revolt"
     "com.github.tchx84.Flatseal /var/lib/flatpak/exports/bin/com.github.tchx84.Flatseal /usr/bin/flatseal"
     "com.discordapp.Discord /var/lib/flatpak/exports/bin/com.discordapp.Discord /usr/bin/discord"
+    "org.jdownloader.JDownloader /var/lib/flatpak/exports/bin/org.jdownloader.JDownloader /usr/bin/jdownloader"
 )
 
 PACMAN_PACKAGES=(
@@ -98,6 +98,7 @@ PACMAN_PACKAGES=(
     "dash"
     "neovim"
     "picom"
+    "rofi"
     "stow"
     ## apps
     "easyeffects"
