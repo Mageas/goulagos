@@ -71,6 +71,7 @@ PACMAN_PACKAGES=(
     "flatpak"
     "gimp"
     "gnome-keyring"
+    "lxappearance"
     "nextcloud-client"
     "openssh"
     "pavucontrol"
