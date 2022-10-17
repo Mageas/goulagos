@@ -72,6 +72,7 @@ PACMAN_PACKAGES=(
     "gimp"
     "gnome-keyring"
     "lxappearance"
+    "ncdu"
     "nextcloud-client"
     "openssh"
     "pavucontrol"
