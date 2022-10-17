@@ -72,6 +72,8 @@ PACMAN_PACKAGES=(
     "gimp"
     "gnome-keyring"
     "lxappearance"
+    "nemo"
+    "nemo-fileroller"
     "ncdu"
     "nextcloud-client"
     "openssh"
