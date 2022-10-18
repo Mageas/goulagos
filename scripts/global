@@ -3,6 +3,9 @@
 # zsh cache
 mkdir -p ${HOME}/.cache/zsh
 
+# default xdg directories
+xdg-user-dirs-update
+
 # sddm config
 doas sed -i -r 's/^(ForceHideCompletePassword=).*/\1"true"/g' /usr/share/sddm/themes/sugar-candy/theme.conf
 doas systemctl enable sddm
