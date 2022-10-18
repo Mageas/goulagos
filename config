@@ -80,6 +80,7 @@ PACMAN_PACKAGES=(
     "pavucontrol"
     "rsync"
     "scrcpy"
+    "swtpm"
     "xdg-user-dirs"
     ## rust (install `rustup` before `rust-analyzer` otherwise `rust` is installed)
     "rustup"
