@@ -112,6 +112,9 @@ PACMAN_PACKAGES=(
     ## theme
     "arc-gtk-theme"
     "papirus-icon-theme"
+    ## joshuto
+    "catdoc"
+    "bat"
     ## dwm
     "sxhkd"
     ## lightdm
