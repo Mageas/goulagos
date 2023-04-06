@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 DISKS_TO_MOUNT=(
-    "UUID=e482f60c-8a80-4a01-8be6-3c11473fbe68    ${HOME}/Films       ext4    defaults    0 0"
     "UUID=20f1c47d-7f9b-4c18-8a22-e1a5fe509ef2    ${HOME}/Documents   ext4    defaults    0 0"
     "UUID=7d366d8b-7b1a-42bc-a4e2-0cd96644d2b9    ${HOME}/2TO         ext4    defaults    0 0"
 )
