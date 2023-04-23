@@ -7,11 +7,11 @@ mkdir -p ${HOME}/.cache/zsh
 xdg-user-dirs-update
 
 # sddm config
-doas sed -i -r 's/^(ForceHideCompletePassword=).*/\1"true"/g' /usr/share/sddm/themes/sugar-candy/theme.conf
-doas systemctl enable sddm
+sudo sed -i -r 's/^(ForceHideCompletePassword=).*/\1"true"/g' /usr/share/sddm/themes/sugar-candy/theme.conf
+sudo systemctl enable sddm
 
 # remove the screen saver
-doas systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
 
 # enable systemctl services
 systemctl --user daemon-reload
@@ -20,14 +20,14 @@ systemctl --user enable easyeffects
 systemctl --user enable polkit
 
 # update the shell
-doas ln -sfT dash /usr/bin/sh
-doas chsh -s /bin/zsh ${USER}
+sudo ln -sfT dash /usr/bin/sh
+sudo chsh -s /bin/zsh ${USER}
 
 # syncplay
 pip install service_identity
 
 # avahi
-doas systemctl enable avahi-daemon
+sudo systemctl enable avahi-daemon
 
 # install rust stable
 rustup install stable

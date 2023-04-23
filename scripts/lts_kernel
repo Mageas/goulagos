@@ -1,18 +1,18 @@
 #!/usr/bin/env bash
 
-doas pacman -S --needed --noconfirm linux-lts \
+sudo pacman -S --needed --noconfirm linux-lts \
     || ERROR "[config.lts_kernel]: Unable to install linux-lts"
 
-doas grub-mkconfig -o /boot/grub/grub.cfg \
+sudo grub-mkconfig -o /boot/grub/grub.cfg \
     || ERROR "[config.lts_kernel]: Unable to generate the grub"
 
-grub_boot_list=$(doas grep gnulinux /boot/grub/grub.cfg)
+grub_boot_list=$(sudo grep gnulinux /boot/grub/grub.cfg)
 grub_submenu=$(echo ${grub_boot_list} | sed -r "s/^.*(gnulinux-advanced-[a-zA-Z0-9-]*).*/\1/")
 grub_arch=$(echo ${grub_boot_list} | sed -r "s/^.*(gnulinux-linux-advanced-[a-zA-Z0-9-]*).*/\1/")
 grub_boot="GRUB_DEFAULT=\"${grub_submenu}>${grub_arch}\""
 
-doas sed -i -r "s/^GRUB_DEFAULT=0/#GRUB_DEFAULT=0\n${grub_boot}/" /etc/default/grub \
+sudo sed -i -r "s/^GRUB_DEFAULT=0/#GRUB_DEFAULT=0\n${grub_boot}/" /etc/default/grub \
     || ERROR "[config.lts_kernel]: Unable to add the linux-lts kernel"
 
-doas grub-mkconfig -o /boot/grub/grub.cfg \
+sudo grub-mkconfig -o /boot/grub/grub.cfg \
     || ERROR "[config.lts_kernel]: Unable to generate the grub"
