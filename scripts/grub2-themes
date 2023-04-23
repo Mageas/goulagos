@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-doas sed -i -e "s/GRUB_GFXMODE=auto/GRUB_GFXMODE=2560x1440,1920x1080,auto/g" /etc/default/grub \
+sudo sed -i -e "s/GRUB_GFXMODE=auto/GRUB_GFXMODE=2560x1440,1920x1080,auto/g" /etc/default/grub \
     || ERROR "[grub2-themes]: Unable to update the grub resolution"
 
 git clone https://github.com/vinceliuice/grub2-themes "${INSTALL_DIRECTORY}/grub2-themes" \
-    && cd "${INSTALL_DIRECTORY}/grub2-themes" && doas ./install.sh --boot --theme tela 1> /dev/null \
+    && cd "${INSTALL_DIRECTORY}/grub2-themes" && sudo ./install.sh --boot --theme tela 1> /dev/null \
     || ERROR "[grub2-themes]: Unable to install grub2-themes"

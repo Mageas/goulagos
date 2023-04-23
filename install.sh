@@ -17,21 +17,6 @@ SCRIPTS_DIRECTORY="${CURRENT_DIRECTORY}/scripts"
 HOSTNAME=$(hostnamectl --static)
 
 
-function EXPECT() {
-    set -e
-    expect 2>/dev/null <<END_EXPECT
-        spawn ${@}
-        expect {
-            "doas \(${USER}@${HOSTNAME}\) password:" {send -- "${USER_PASSWORD}\r"}
-            "\[sudo\] password for ${USER}:" {send -- "${USER_PASSWORD}\r"}
-        }
-        expect eof
-        catch wait result
-        exit [lindex \$result 3]
-END_EXPECT
-}
-
-
 function LOG_TO_FILE() {
     echo "${1}" >> ${LOGS_FILE}
 }
@@ -56,13 +41,8 @@ function check_privileges() {
         exit 1
     fi
 
-    [ ! -x "$(command -v expect)" ] && ERROR "[check_privileges]: Please install the expect package 'pacman -S expect'"
-
-    doas echo ""
+    sudo echo ""
     [[ ${?} -eq 1 ]] && ERROR "[check_privileges]: Your root password is wrong"
-
-    read -p "Please retype your password: " -s USER_PASSWORD
-    EXPECT doas echo "" || ERROR "[check_privileges]: Your root password is wrong"
 }
 
 
@@ -74,20 +54,20 @@ function script_config() {
     git config --global user.email "example@mail.com"
     git config --global user.name "example"
 
-    doas sed -i '/^#\ParallelDownloads =/{N;s/#//g}' /etc/pacman.conf \
+    sudo sed -i '/^#\ParallelDownloads =/{N;s/#//g}' /etc/pacman.conf \
         || LOG "[init_directory]: Unable to activate the parallel downloads"
 }
 
 
 function install_pacman_packages() {
-    doas pacman -Sy --noconfirm archlinux-keyring \
+    sudo pacman -Sy --noconfirm archlinux-keyring \
         || ERROR "[update_and_install_dependencies]: Unable to update archlinux keyring"
 
-    doas pacman -Syu --noconfirm \
+    sudo pacman -Syu --noconfirm \
         || ERROR "[update_and_install_dependencies]: Unable to update the system"
         
     for _package in "${PACMAN_PACKAGES[@]}"; do
-        doas pacman -S --needed --noconfirm ${_package} \
+        sudo pacman -S --needed --noconfirm ${_package} \
             || LOG "[install_pacman_packages]: Unable to install ${_package}"
     done
 }
@@ -120,7 +100,7 @@ function install_flatpak_packages() {
             || LOG "[install_flatpak_packages]: Unable to install ${_name}"
 
         [ -z "${_path}" ] || [ -z "${_bin}" ] && continue
-        doas ln -sf ${_path} ${_bin} \
+        sudo ln -sf ${_path} ${_bin} \
             || LOG "[install_flatpak_packages]: Unable to link ${_name} from (${_path}) to (${_bin})"
     done
 }
@@ -132,25 +112,27 @@ function install_dotfiles () {
         && stow -R */ \
         || ERROR "[install_dotfiles]: Unable to install sysfiles"
 
-    doas git clone ${SYSFILES} ${SYSFILES_DIRECTORY} \
+    sudo git clone ${SYSFILES} ${SYSFILES_DIRECTORY} \
         && cd "${SYSFILES_DIRECTORY}" \
         || ERROR "[install_dotfiles]: Unable to install root dotfiles"
 
     for directory in $( ls -p | grep / ); do
         CONFLICTS=$(stow --no --verbose ${directory} 2>&1 | awk '/\* existing target is/ {print $NF}')
         for f in ${CONFLICTS[@]}; do
-            [[ -f "/${f}" || -L "/${f}" ]] && doas rm "/${f}"
+            [[ -f "/${f}" || -L "/${f}" ]] && sudo rm "/${f}"
         done
     done
-    doas stow -R */ \
+    sudo stow -R */ \
         || ERROR "[install_dotfiles]: Unable to install sysfiles"
+
+    source ~/.zshrc
 }
 
 
 function install_suckless () {
     for _suckless in "${SUCKLESS[@]}"; do
         git clone --recurse-submodules "${SUCKLESS_BASE_LINK}/${_suckless}" "${INSTALL_DIRECTORY}/${_suckless}" \
-            && cd "${INSTALL_DIRECTORY}/${_suckless}/${_suckless}" && EXPECT suckupdate \
+            && cd "${INSTALL_DIRECTORY}/${_suckless}/${_suckless}" && suckupdate \
             || ERROR "[install_suckless]: Unable to install ${_suckless}"
     done
 }
@@ -159,7 +141,7 @@ function install_suckless () {
 function config_fstab(){
     for _disk in "${DISKS_TO_MOUNT[@]}"; do
         local _uuid=$(echo ${_disk} | awk '{print $1}')
-        [[ -n $(grep ${_uuid} "/etc/fstab") ]] && echo " >> Skipping ${_uuid}" || echo "${_disk}" | doas tee -a /etc/fstab
+        [[ -n $(grep ${_uuid} "/etc/fstab") ]] && echo " >> Skipping ${_uuid}" || echo "${_disk}" | sudo tee -a /etc/fstab
     done
 }
 
