@@ -23,5 +23,11 @@ systemctl --user enable polkit
 doas ln -sfT dash /usr/bin/sh
 doas chsh -s /bin/zsh ${USER}
 
+# syncplay
+pip install service_identity
+
+# avahi
+doas systemctl enable avahi-daemon
+
 # install rust stable
 rustup install stable

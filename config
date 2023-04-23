@@ -7,6 +7,7 @@ DISKS_TO_MOUNT=(
 
 SUCKLESS=(
     "dwm"
+    "dmenu"
 )
 
 CUSTOM_SCRIPTS=(
@@ -19,16 +20,19 @@ CUSTOM_SCRIPTS=(
 
 AUR_PACKAGES=(
     "joshuto"
+    "pyside2"
     "scrcpy"
     "sddm-sugar-candy-git"
     "spaceship-prompt-git"
 )
 
 FLATPAK_PACKAGES=(
-    "chat.revolt.RevoltDesktop /var/lib/flatpak/exports/bin/chat.revolt.RevoltDesktop /usr/bin/revolt"
+    "im.riot.Riot /var/lib/flatpak/exports/bin/im.riot.Riot /usr/bin/riot"
     "com.github.tchx84.Flatseal /var/lib/flatpak/exports/bin/com.github.tchx84.Flatseal /usr/bin/flatseal"
     "com.discordapp.Discord /var/lib/flatpak/exports/bin/com.discordapp.Discord /usr/bin/discord"
     "org.jdownloader.JDownloader /var/lib/flatpak/exports/bin/org.jdownloader.JDownloader /usr/bin/jdownloader"
+    "org.prismlauncher.PrismLauncher /var/lib/flatpak/exports/bin/org.prismlauncher.PrismLauncher /usr/bin/prismlauncher"
+    "com.github.micahflee.torbrowser-launcher /var/lib/flatpak/exports/bin/com.github.micahflee.torbrowser-launcher /usr/bin/torbrowser-launcher"
 )
 
 PACMAN_PACKAGES=(
@@ -70,15 +74,19 @@ PACMAN_PACKAGES=(
     "flatpak"
     "gimp"
     "gnome-keyring"
+    "helix"
     "lxappearance"
     "nemo"
     "nemo-fileroller"
     "ncdu"
     "nextcloud-client"
+    "ncdu"
     "openssh"
     "pavucontrol"
+    "qbittorrent"
     "rsync"
     "scrcpy"
+    "syncplay"
     "swtpm"
     "xdg-user-dirs"
     ## rust (install `rustup` before `rust-analyzer` otherwise `rust` is installed)
@@ -91,9 +99,16 @@ PACMAN_PACKAGES=(
     "ntfs-3g"
     ## logitech
     "piper"
+    ## samba
+    "avahi"
+    "dbus"
+    "smbclient"
+    "gvfs-smb"
+    "nemo-share"
 
     # fonts
     "noto-fonts"
+    "noto-fonts-cjk"
     "noto-fonts-emoji"
     "ttf-dejavu"
     "ttf-jetbrains-mono"
