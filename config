@@ -11,7 +11,6 @@ SUCKLESS=(
 
 CUSTOM_SCRIPTS=(
     "grub2-themes"
-    "astro_nvim"
     "doom_emacs"
     "lts_kernel"
     "global"

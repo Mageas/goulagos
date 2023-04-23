@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim \
-    || LOG "[config.astro_nvim]: Unable to install AstroNvim"
-
-nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
