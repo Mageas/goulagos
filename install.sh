@@ -124,6 +124,8 @@ function install_dotfiles () {
     done
     sudo stow -R */ \
         || ERROR "[install_dotfiles]: Unable to install sysfiles"
+
+    source ~/.zshrc
 }
 
 
