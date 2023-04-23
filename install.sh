@@ -9,11 +9,11 @@ SCRIPTS_DIRECTORY="${CURRENT_DIRECTORY}/scripts"
 [ -f "${CURRENT_DIRECTORY}/config" ] && source "${CURRENT_DIRECTORY}/config"
 [ "${INSTALL_DIRECTORY}" = "" ] && INSTALL_DIRECTORY="${HOME}/.goulagos"
 [ "${LOGS_FILE}" = "" ] && LOGS_FILE="${INSTALL_DIRECTORY}/logs"
-[ "${DOTFILES}" = "" ] && DOTFILES="https://gitea.heartnerds.org/Mageas/dotfiles"
+[ "${DOTFILES}" = "" ] && DOTFILES="https://github.com/Mageas/dotfiles"
 [ "${DOTFILES_DIRECTORY}" = "" ] && DOTFILES_DIRECTORY="${HOME}/.dots"
-[ "${SYSFILES}" = "" ] && SYSFILES="https://gitea.heartnerds.org/Mageas/sysfiles"
+[ "${SYSFILES}" = "" ] && SYSFILES="https://github.com/Mageas/sysfiles"
 [ "${SYSFILES_DIRECTORY}" = "" ] && SYSFILES_DIRECTORY="/opt/sysfiles"
-[ "${SUCKLESS_BASE_LINK}" = "" ] && SUCKLESS_BASE_LINK="https://gitea.heartnerds.org/Mageas"
+[ "${SUCKLESS_BASE_LINK}" = "" ] && SUCKLESS_BASE_LINK="https://github.com/Mageas"
 HOSTNAME=$(hostnamectl --static)
 
 
