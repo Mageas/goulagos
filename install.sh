@@ -92,12 +92,6 @@ function install_pacman_packages() {
     done
 }
 
-function remove_sudo() {
-    doas pacman -Rns --noconfirm sudo \
-        || LOG "[remove_sudo]: Unable to uninstall sudo"
-    doas ln -sf /bin/doas /bin/sudo
-}
-
 
 function install_aur_packages() {
     rustup install stable || ERROR "[install_aur_packages]: Unable to configure rustup"
@@ -185,7 +179,7 @@ function status () {
 }
 
 
-number_of_steps=10
+number_of_steps=9
 
 
 status "Checking script privileges"
@@ -196,9 +190,6 @@ script_config
 
 status "Installing community packages"
 install_pacman_packages
-
-status "Removing sudo"
-remove_sudo
 
 status "Installing aur packages"
 install_aur_packages
