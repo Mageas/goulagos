@@ -41,8 +41,6 @@ function check_privileges() {
         exit 1
     fi
 
-    [ ! -x "$(command -v expect)" ] && ERROR "[check_privileges]: Please install the expect package 'pacman -S expect'"
-
     sudo echo ""
     [[ ${?} -eq 1 ]] && ERROR "[check_privileges]: Your root password is wrong"
 }
