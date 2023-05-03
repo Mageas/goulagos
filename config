@@ -10,6 +10,7 @@ SUCKLESS=(
 )
 
 CUSTOM_SCRIPTS=(
+    "russian"
     "grub2-themes"
     "doom_emacs"
     "lts_kernel"
