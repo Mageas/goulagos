@@ -3,7 +3,7 @@
 sudo pacman -S --needed --noconfirm ttf-dejavu ttf-liberation \
     || ERROR "[config.russian]: Unable to install fonts"
 
-sudo echo "ru_RU.UTF-8 UTF-8" >> /etc/locale.gen \
+echo "ru_RU.UTF-8 UTF-8" | sudo tee -a /etc/locale.gen \
     || LOG "[config.russian]: Unable to add russian to locales"
 
 sudo locale-gen \
